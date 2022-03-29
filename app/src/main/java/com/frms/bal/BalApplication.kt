@@ -40,5 +40,6 @@ open class BalApplication : Application()
 
 	fun getActivityManager() = activitiesManager
 
-	override fun toString(): String = "BalApplication, 存活数activity=${activitiesManager.size}"
+	override fun toString(): String =
+		"BalApplication, 存活数activity=${activitiesManager.size}"
 }

@@ -21,7 +21,7 @@
         </activity>
 
         <activity android:name=".BalBaseActivity" />
-        <activity android:name=".ui.BalGuideActivity"/>
+        <activity android:name=".test.TestGuideActivity"/>
 
     </application>
 

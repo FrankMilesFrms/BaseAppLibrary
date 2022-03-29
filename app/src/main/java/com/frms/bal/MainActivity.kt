@@ -7,13 +7,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import 	android.content.Intent
+import android.view.LayoutInflater
+import com.frms.bal.test.TestGuideActivity
 import com.frms.bal.ui.BalGuideActivity
+import com.frms.bal.utils.BalActivitiesKit
 import com.frms.bal.view.BalDialogs
 
 class MainActivity : BalBaseActivity(), View.OnClickListener
 {
 	val mRecyclerViewItems = ArrayList<String>()
-	val functions = arrayOf<String>(
+	val functions = arrayOf(
 		"BalApplication ： 全局Application",
 		"BalGuideActivity : 新用户引导页"
 	)
@@ -21,6 +24,7 @@ class MainActivity : BalBaseActivity(), View.OnClickListener
 	{
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
+
 	}
 
 	override fun onStart()
@@ -34,6 +38,7 @@ class MainActivity : BalBaseActivity(), View.OnClickListener
 
 		recyclerView.adapter = RecyclerAdapter(this)
 		recyclerView.layoutManager = LinearLayoutManager(this)
+
 	}
 
 	class RecyclerAdapter(activity: MainActivity) : RecyclerView.Adapter<RecyclerHolder>()
@@ -42,7 +47,7 @@ class MainActivity : BalBaseActivity(), View.OnClickListener
 
 		override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerHolder
 		{
-			val view = View.inflate(ctx, R.layout.test_title, null)
+			val view = LayoutInflater.from(ctx).inflate(R.layout.test_title, parent, false)
 			return RecyclerHolder(view)
 		}
 
@@ -72,7 +77,7 @@ class MainActivity : BalBaseActivity(), View.OnClickListener
 
 				functions[1] -> {
 					// 引导页
-					val intent = Intent(this@MainActivity, BalGuideActivity::class.java)
+					val intent = Intent(this@MainActivity, TestGuideActivity::class.java)
 					startActivity(intent)
 				}
 
