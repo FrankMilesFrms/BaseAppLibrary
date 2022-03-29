@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import 	android.content.Intent
 import android.view.LayoutInflater
 import com.frms.bal.test.TestGuideActivity
+import com.frms.bal.test.TestSplashActivity
 import com.frms.bal.ui.BalGuideActivity
 import com.frms.bal.utils.BalActivitiesKit
 import com.frms.bal.view.BalDialogs
@@ -18,7 +19,8 @@ class MainActivity : BalBaseActivity(), View.OnClickListener
 	val mRecyclerViewItems = ArrayList<String>()
 	val functions = arrayOf(
 		"BalApplication ： 全局Application",
-		"BalGuideActivity : 新用户引导页"
+		"BalGuideActivity : 新用户引导页",
+		"BalSplashActivity : 开始页"
 	)
 	override fun onCreate(savedInstanceState: Bundle?)
 	{
@@ -32,9 +34,9 @@ class MainActivity : BalBaseActivity(), View.OnClickListener
 		super.onStart()
 
 		val recyclerView = findViewById<RecyclerView>(R.id.test_recyclerView)
-		// 功能呢添加
-		mRecyclerViewItems.add(functions[0])
-		mRecyclerViewItems.add(functions[1])
+		// 功能添加
+		for (i in functions)
+			mRecyclerViewItems.add(i)
 
 		recyclerView.adapter = RecyclerAdapter(this)
 		recyclerView.layoutManager = LinearLayoutManager(this)
@@ -78,6 +80,11 @@ class MainActivity : BalBaseActivity(), View.OnClickListener
 				functions[1] -> {
 					// 引导页
 					val intent = Intent(this@MainActivity, TestGuideActivity::class.java)
+					startActivity(intent)
+				}
+
+				functions[2] -> {
+					val intent = Intent(this@MainActivity, TestSplashActivity::class.java)
 					startActivity(intent)
 				}
 

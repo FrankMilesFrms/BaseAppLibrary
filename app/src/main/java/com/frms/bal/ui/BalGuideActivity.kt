@@ -2,6 +2,7 @@ package com.frms.bal.ui
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Parcelable
 import android.provider.BrowserContract
 import android.view.View
 import android.view.ViewGroup
@@ -45,12 +46,28 @@ open class BalGuideActivity : BalBaseActivity()
 
 	}
 
+	override fun onSaveInstanceState(outState: Bundle)
+	{
+		val superState = super.onSaveInstanceState(outState)
+
+		linear.removeAllViews()
+		// 移除红点
+		rl.removeViewAt(rl.childCount-1)
+
+		return superState
+	}
+
 	companion object {
-		private lateinit var images : Array<Int>
+		private lateinit var images : IntArray
 		private val imageViews : ArrayList<ImageView> = ArrayList()
 	}
 
-	fun addImages(resources : Array<Int>, click : View.OnClickListener)
+	/**
+	 * 添加图片，注意，图片加载不要过大，如要加载，请异步
+	 * @param resources Array<Int>
+	 * @param click OnClickListener
+	 */
+	fun addImages(resources : IntArray, click : View.OnClickListener)
 	{
 		images = resources
 		viewPager2.adapter = MyAdapter(this)
@@ -105,15 +122,21 @@ open class BalGuideActivity : BalBaseActivity()
 			{
 				super.onPageScrolled(position, positionOffset, positionOffsetPixels)
 				val layoutParams = red.layoutParams as RelativeLayout.LayoutParams
-				layoutParams.leftMargin = (left * positionOffset + position*left).toInt()
+				layoutParams.leftMargin = (left * positionOffset + position * left).toInt()
+
 				red.layoutParams = layoutParams;
 			}
 
 		})
 
 		btn.setOnClickListener(click)
-
 	}
+
+	/**
+	 * 获取按钮布局
+	 * @param view View
+	 */
+	fun getButton() : Button = btn
 
 	private class MyAdapter constructor(ctx : Context) : RecyclerView.Adapter<MyViewHolder> ()
 	{
