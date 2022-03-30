@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import 	android.content.Intent
 import android.view.LayoutInflater
+import android.widget.Toast
 import com.frms.bal.test.TestGuideActivity
 import com.frms.bal.test.TestSplashActivity
 import com.frms.bal.ui.BalBaseActivity
@@ -27,6 +28,12 @@ class MainActivity : BalBaseActivity(), View.OnClickListener
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 
+	}
+
+	override fun onDestroy()
+	{
+		super.onDestroy()
+		Toast.makeText(this, "what?", Toast.LENGTH_LONG).show()
 	}
 
 	override fun onStart()
