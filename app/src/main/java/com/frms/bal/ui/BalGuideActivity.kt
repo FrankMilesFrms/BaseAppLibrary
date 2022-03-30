@@ -2,11 +2,8 @@ package com.frms.bal.ui
 
 import android.content.Context
 import android.os.Bundle
-import android.os.Parcelable
-import android.provider.BrowserContract
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewTreeObserver
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -14,7 +11,6 @@ import android.widget.RelativeLayout
 import androidx.recyclerview.widget.RecyclerView
 
 import androidx.viewpager2.widget.ViewPager2
-import com.frms.bal.BalBaseActivity
 import com.frms.bal.R
 import com.frms.bal.utils.BalActivitiesKit
 

@@ -1,8 +1,9 @@
-package com.frms.bal
+package com.frms.bal.ui
 
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
+import com.frms.bal.ui.BalApplication
 
 /**
  *基本Activity， 这管理着所有Activity

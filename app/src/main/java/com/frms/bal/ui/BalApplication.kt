@@ -1,9 +1,7 @@
-package com.frms.bal
+package com.frms.bal.ui
 
 import android.app.Application
-import android.content.Intent
 import android.content.res.Configuration
-import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 
 /**

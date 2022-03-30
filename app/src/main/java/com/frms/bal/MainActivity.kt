@@ -10,8 +10,7 @@ import 	android.content.Intent
 import android.view.LayoutInflater
 import com.frms.bal.test.TestGuideActivity
 import com.frms.bal.test.TestSplashActivity
-import com.frms.bal.ui.BalGuideActivity
-import com.frms.bal.utils.BalActivitiesKit
+import com.frms.bal.ui.BalBaseActivity
 import com.frms.bal.view.BalDialogs
 
 class MainActivity : BalBaseActivity(), View.OnClickListener
@@ -19,6 +18,7 @@ class MainActivity : BalBaseActivity(), View.OnClickListener
 	val mRecyclerViewItems = ArrayList<String>()
 	val functions = arrayOf(
 		"BalApplication ： 全局Application",
+		"BalDialogs ： Material对话框",
 		"BalGuideActivity : 新用户引导页",
 		"BalSplashActivity : 开始页"
 	)
@@ -73,22 +73,38 @@ class MainActivity : BalBaseActivity(), View.OnClickListener
 		(v as TextView).let {
 			when (v.text)
 			{
+
 				functions[0] -> {
-					BalDialogs.rawShowDialog(it.context, "本application = $application")
+//					BalDialogs.ordinaryDialog(
+//						it.context,
+//						"ordinaryDialog", "本application = $application",
+//						"关闭", null,
+//						"", null, "", null
+//					).show()
 				}
 
-				functions[1] -> {
+				functions[1] -> showDialogFunctions()
+
+				functions[2] -> {
 					// 引导页
 					val intent = Intent(this@MainActivity, TestGuideActivity::class.java)
 					startActivity(intent)
 				}
 
-				functions[2] -> {
+				functions[3] -> {
 					val intent = Intent(this@MainActivity, TestSplashActivity::class.java)
 					startActivity(intent)
 				}
 
+				else         ->
+				{
+				}
 			}
 		}
+	}
+
+	private fun showDialogFunctions()
+	{
+
 	}
 }

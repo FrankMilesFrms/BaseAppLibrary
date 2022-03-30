@@ -2,14 +2,6 @@ package com.frms.bal.ui
 
 import android.R
 import android.content.Intent
-import android.os.Bundle
-import android.os.PersistableBundle
-import android.view.View
-import android.view.animation.Animation
-import android.view.animation.ScaleAnimation
-import com.frms.bal.BalBaseActivity
-import com.frms.bal.MainActivity
-import java.sql.Time
 
 
 /**
@@ -32,6 +24,21 @@ open class BalSplashActivity : BalBaseActivity()
 	fun onRun()
 	{
 		Thread.sleep(waitTime)
+		startActivity()
+	}
+
+	/**
+	 * 也可以将加载项作为不定加载时间
+	 * @param runnable Runnable
+	 */
+	fun onRun(runnable: Runnable)
+	{
+		Thread(runnable).run()
+		startActivity()
+	}
+
+	private fun startActivity()
+	{
 		finish()
 		val intent = Intent(this, mActivity)
 		startActivity(intent)

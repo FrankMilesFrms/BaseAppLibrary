@@ -5,7 +5,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:name=".BalApplication"
+        android:name=".ui.BalApplication"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".BalBaseActivity" />
+        <activity android:name=".ui.BalBaseActivity" />
         <activity android:name=".test.TestGuideActivity"/>
         <activity android:name=".test.TestSplashActivity"/>
     </application>
