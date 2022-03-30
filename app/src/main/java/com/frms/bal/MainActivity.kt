@@ -12,7 +12,7 @@ import com.frms.bal.test.TestGuideActivity
 import com.frms.bal.test.TestSplashActivity
 import com.frms.bal.ui.BalBaseActivity
 import com.frms.bal.view.BalDialogs
-
+// 新的项目名
 class MainActivity : BalBaseActivity(), View.OnClickListener
 {
 	val mRecyclerViewItems = ArrayList<String>()
